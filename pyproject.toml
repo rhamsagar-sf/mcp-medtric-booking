@@ -4,7 +4,7 @@ version = "0.1.0"
 description = "FastMCP quickstart server"
 requires-python = ">=3.10"
 dependencies = [
-    "fastmcp>=3.0.0rc1",
+    "fastmcp==2.12.3",
     "httpx>=0.28.1",
 ]
 
