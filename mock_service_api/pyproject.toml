@@ -1,0 +1,13 @@
+[project]
+name = "mock-service-api"
+version = "0.1.0"
+description = "Mock service scheduling API for FastMCP integration testing"
+requires-python = ">=3.10"
+dependencies = [
+    "fastapi>=0.116.0",
+    "uvicorn>=0.35.0",
+]
+
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
