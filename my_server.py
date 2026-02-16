@@ -13,7 +13,7 @@ def get_service_assistant_availability(
     preferred_date: str,
     service_type: str,
     timezone: str = "America/Chicago",
-    product_id: str | None = None,
+    product_id: str = "",
 ) -> dict[str, Any]:
     """Get service assistant availability from the downstream scheduling API."""
     payload = {
@@ -22,7 +22,7 @@ def get_service_assistant_availability(
         "service_type": service_type,
         "timezone": timezone,
     }
-    if product_id:
+    if product_id.strip():
         payload["product_id"] = product_id
 
     try:
@@ -42,8 +42,8 @@ def book_service_visit(
     city: str,
     state: str,
     postal_code: str,
-    customer_email: str | None = None,
-    notes: str | None = None,
+    customer_email: str = "",
+    notes: str = "",
 ) -> dict[str, Any]:
     """Book a service visit with selected slot and customer/address details."""
     payload = {
@@ -58,9 +58,9 @@ def book_service_visit(
             "postal_code": postal_code,
         },
     }
-    if customer_email:
+    if customer_email.strip():
         payload["customer_email"] = customer_email
-    if notes:
+    if notes.strip():
         payload["notes"] = notes
 
     try:
@@ -74,14 +74,14 @@ def book_service_visit(
 def reschedule_booking(
     booking_id: str,
     new_slot_id: str,
-    reason: str | None = None,
+    reason: str = "",
 ) -> dict[str, Any]:
     """Reschedule an existing service booking to a new slot."""
     payload = {
         "booking_id": booking_id,
         "new_slot_id": new_slot_id,
     }
-    if reason:
+    if reason.strip():
         payload["reason"] = reason
 
     try:
